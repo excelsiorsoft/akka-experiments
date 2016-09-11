@@ -4,6 +4,11 @@
        
 Then start typing words and when done - press [Enter]
 
-    [![Capture.jpg](https://s16.postimg.org/kcafmg61x/Capture.jpg)](https://postimg.org/image/dylcj715t/)
-   
+
+[![Output will look like this:][1]][1]
+
+
+  [1]: https://s16.postimg.org/kcafmg61x/Capture.jpg
+
+
 - To stop - type "exit" on the console
