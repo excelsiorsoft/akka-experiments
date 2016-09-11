@@ -4,4 +4,11 @@
   <artifactId>akka.upper-caser.java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>akka uppercaser</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.typesafe.akka</groupId>
+  		<artifactId>akka-actor_2.11</artifactId>
+  		<version>2.4.10</version>
+  	</dependency>
+  </dependencies>
 </project>
