@@ -1,5 +1,24 @@
 package com.excelsiorsoft.akka.uppercaser.java;
 
-public class WorkerUpcaser {
+import akka.actor.ActorRef;
+import akka.actor.UntypedActor;
 
+public class WorkerUpcaser extends UntypedActor{
+
+	@Override
+	public void onReceive(Object msg) throws Throwable {
+
+		if(msg instanceof String) {
+			String response = ((String)msg).toUpperCase();
+			ActorRef sender = getSender();
+			sender.tell(response, getSelf());
+		
+		}else {
+			unhandled(msg);
+		}
+		
+	}
+
+	
+	
 }
