@@ -9,7 +9,7 @@ import akka.actor.UntypedActor;
  * @author Simeon
  *
  */
-public class Callback extends UntypedActor{
+public class Listener extends UntypedActor{
 
 	@Override
 	public void onReceive(Object msg) throws Throwable {
