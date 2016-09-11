@@ -28,6 +28,7 @@ public class Application {
 				return;
 			}
 			worker.tell(line, callback);
+			//worker.tell(line, ActorRef.noSender()); //"null object" pattern
 		}
 		
 	}
