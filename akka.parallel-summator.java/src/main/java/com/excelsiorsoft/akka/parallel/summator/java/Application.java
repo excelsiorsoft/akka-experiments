@@ -16,20 +16,6 @@ import akka.actor.Props;
 public class Application {
 	
 	public static void main(String[] args) {
-		ActorSystem system = ActorSystem.create("demo");
-		ActorRef worker = system.actorOf(Props.create(WorkerUpcaser.class),"worker");
-		ActorRef callback = system.actorOf(Props.create(Listener.class),"listener");
-		
-		Scanner sc = new Scanner(System.in);
-		while(sc.hasNext()) {
-			String line = sc.nextLine();
-			if("exit".equals(line)) {
-				system.shutdown();
-				return;
-			}
-			worker.tell(line, callback);
-			//worker.tell(line, ActorRef.noSender()); //"null object" pattern
-		}
 		
 	}
 
