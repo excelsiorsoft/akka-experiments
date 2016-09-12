@@ -8,9 +8,11 @@ import akka.actor.PoisonPill;
 import akka.actor.Props;
 import akka.actor.UntypedActor;
 
+/*
+ */
 public class Summator extends UntypedActor {
 
-	private final ActorRef master;
+	private final ActorRef listener;
 	private int NUMBER_OF_SLAVES = 2;
 	
 	private final List<Integer> state = new ArrayList<>(NUMBER_OF_SLAVES);
@@ -18,7 +20,7 @@ public class Summator extends UntypedActor {
 	private ActorRef slave2;
 
 	public Summator(ActorRef master) {
-		this.master = master;
+		this.listener = master;
 	}
 
 	@Override
@@ -40,14 +42,14 @@ public class Summator extends UntypedActor {
 						Props.create(Summator.class, getSelf()))).tell(
 						new int[] { ((from + to) >>> 1)+1,to }, getSelf());
 			}else {//can do work myself
-				master.tell(calc(from,to), getSelf());
+				listener.tell(calc(from,to), getSelf());
 			}
 		}else if(msg instanceof Integer) {//result comes fromo slaves through here
 			
 			state.add((Integer) msg);
 			if(state.size() == NUMBER_OF_SLAVES) {
 				
-				master.tell(state.get(0)+state.get(1), getSelf());
+				listener.tell(state.get(0)+state.get(1), getSelf());
 				
 				//actor finished theri tasks, kill 'em now
 				slave1.tell(PoisonPill.getInstance(), getSelf());

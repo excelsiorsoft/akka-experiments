@@ -23,6 +23,8 @@ public class Application {
 		
 		summator.tell(new int[] {0,  10}, ActorRef.noSender());
 		
+		
+		
 	}
 
 }
