@@ -17,6 +17,11 @@ public class Application {
 	
 	public static void main(String[] args) {
 
+		ActorSystem system = ActorSystem.create("demo");
+		ActorRef listener = system.actorOf(Props.create(Listener.class), "listener");
+		ActorRef summator = system.actorOf(Props.create(Summator.class, listener), "summator");
+		
+		summator.tell(new int[] {0,  10}, ActorRef.noSender());
 		
 	}
 
