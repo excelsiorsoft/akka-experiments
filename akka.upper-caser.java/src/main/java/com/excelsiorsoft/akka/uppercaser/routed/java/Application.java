@@ -1,13 +1,15 @@
-package com.excelsiorsoft.akka.uppercaser.java;
+package com.excelsiorsoft.akka.uppercaser.routed.java;
 
 import java.util.Scanner;
+
+
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.routing.SmallestMailboxPool;
 
-public class AppWithRouter {
+public class Application {
 	
 	public static void main(String[] args) {
 		ActorSystem system = ActorSystem.create("demo");
