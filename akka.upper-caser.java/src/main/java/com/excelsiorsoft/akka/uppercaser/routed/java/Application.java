@@ -28,8 +28,10 @@ public class Application {
 				return;
 			}
 			
+			//workers are now proxied by router with 5 threads
 			router.tell(line, callback);
 			//worker.tell(line, callback);
+			
 			//worker.tell(line, ActorRef.noSender()); //"null object" pattern
 		}
 		
