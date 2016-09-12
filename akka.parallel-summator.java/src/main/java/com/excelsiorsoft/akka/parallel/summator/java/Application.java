@@ -17,7 +17,7 @@ public class Application {
 	
 	public static void main(String[] args) {
 		ActorSystem system = ActorSystem.create("demo");
-		ActorRef worker = system.actorOf(Props.create(WorkerUpcaser.class),"worker");
+		ActorRef worker = system.actorOf(Props.create(Summator.class),"worker");
 		ActorRef callback = system.actorOf(Props.create(Listener.class),"listener");
 		
 		Scanner sc = new Scanner(System.in);
