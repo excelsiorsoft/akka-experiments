@@ -4,6 +4,7 @@
 package com.excelsiorsoft.akka.parallel.hashmap.java;
 
 import static akka.actor.ActorRef.noSender;
+import static com.excelsiorsoft.akka.parallel.hashmap.java.Container.*;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -20,15 +21,15 @@ public class Application {
 		ActorRef container = system.actorOf(Props.create(Container.class), "container");
 		ActorRef listener = system.actorOf(Props.create(Listener.class), "listener");
 		
-		container.tell(msg("put", "key-A", "A"),  noSender());
-		container.tell(msg("put", "key-B", "B"),  noSender());
-		container.tell(msg("put", "key-C", "C"),  noSender());
+		container.tell(msg(PUT, "key-A", "A"),  noSender());
+		container.tell(msg(PUT, "key-B", "B"),  noSender());
+		container.tell(msg(PUT, "key-C", "C"),  noSender());
 		
-		container.tell(msg("remove", "keyB"), noSender());
+		container.tell(msg(REMOVE, "keyB"), noSender());
 		
-		container.tell(msg("get", "key-A"), listener);
-		container.tell(msg("get", "key-B"), listener);
-		container.tell(msg("get", "key-C"), listener);
+		container.tell(msg(GET, "key-A"), listener);
+		container.tell(msg(GET, "key-B"), listener);
+		container.tell(msg(GET, "key-C"), listener);
 		
 		System.in.read();
 		system.shutdown();

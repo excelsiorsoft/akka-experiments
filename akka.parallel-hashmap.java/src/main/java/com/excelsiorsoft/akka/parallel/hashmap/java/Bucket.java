@@ -1,7 +1,7 @@
 package com.excelsiorsoft.akka.parallel.hashmap.java;
 
 import static com.excelsiorsoft.akka.parallel.hashmap.java.Application.msg;
-
+import static com.excelsiorsoft.akka.parallel.hashmap.java.Container.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,18 +29,18 @@ public class Bucket extends UntypedActor {
 		
 		switch(command) {
 		
-			case "put": 			//msg = {"put", key, value}
+			case PUT: 			//msg = {"put", key, value}
 				Object value = msgArr[2];
 				data.put(key, value);
 				break;				//we are not returning anything for 'put' request
 				
-			case "remove": 		  //msg = {"remove", key}
+			case REMOVE: 		  //msg = {"remove", key}
 				data.remove(key);
 				break; 			  //we are not returning anything for 'remove' request
 			
-			case "get": 		 //msg = {"get", key, originalSender} -> {"get/result", key, originalSender}
+			case GET: 		 //msg = {"get", key, originalSender} -> {"get/result", key, originalSender}
 				ActorRef originalSender = (ActorRef) msgArr[2];
-				Object[] response = msg("get/result", key, data.get(key), originalSender);
+				Object[] response = msg(GET_RESULT, key, data.get(key), originalSender);
 				getSender().tell(response, getSelf());
 				break;
 		}
