@@ -14,6 +14,11 @@ import akka.actor.UntypedActor;
  */
 public class Container extends UntypedActor {
 	
+	public static final String GET_RESULT = "get/result";
+	public static final String GET = "get";
+	public static final String REMOVE = "remove";
+	public static final String PUT = "put";
+	
 	private static final int NUM_OF_BUCKETS = 16;
 	ActorRef[] buckets = new ActorRef[NUM_OF_BUCKETS];
 	
@@ -37,20 +42,20 @@ public class Container extends UntypedActor {
 		
 		switch(command) {
 									//just proxy to the bucket
-		case "put": 				//{"put", key, value} -> {"put", key, value}
-		case "remove": 				//{"remove", key} -> {"remove", key}
+		case PUT: 				//{"put", key, value} -> {"put", key, value}
+		case REMOVE: 				//{"remove", key} -> {"remove", key}
 			
 			   												//getSelf() - not strictly necessary as no response is expected
 			buckets[key.hashCode() % NUM_OF_BUCKETS].tell(msg, getSelf()); 
 			break;
-		case "get": 				//{"get", key} -> {"get", key, originalSender}
-			Object[] nextGet = {"get", key, getSender()};
+		case GET: 				//{"get", key} -> {"get", key, originalSender}
+			Object[] nextGet = {GET, key, getSender()};
 			buckets[key.hashCode() % NUM_OF_BUCKETS].tell(nextGet, getSelf());
 			break;
-		case "get/result": 			//{"get/result", key, value, originalSender} -> {"get/result", key, value}
+		case GET_RESULT: 			//{"get/result", key, value, originalSender} -> {"get/result", key, value}
 			String value = (String)msgArr[2];
 			ActorRef originalSender = (ActorRef)msgArr[3];
-			Object[] responseGet = {"get/result", key, value};
+			Object[] responseGet = {GET_RESULT, key, value};
 			originalSender.tell(responseGet, getSelf());
 			break;
 		}
