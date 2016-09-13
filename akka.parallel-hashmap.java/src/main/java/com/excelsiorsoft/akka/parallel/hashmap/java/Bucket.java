@@ -40,7 +40,6 @@ public class Bucket extends UntypedActor {
 			
 			case "get": 		 //msg = {"get", key, originalSender} -> {"get/result", key, originalSender}
 				ActorRef originalSender = (ActorRef) msgArr[2];
-				//System.out.println("bucket: originalSender="+originalSender);
 				Object[] response = msg("get/result", key, data.get(key), originalSender);
 				getSender().tell(response, getSelf());
 				break;
