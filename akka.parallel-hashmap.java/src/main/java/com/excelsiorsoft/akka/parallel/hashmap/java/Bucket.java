@@ -1,6 +1,6 @@
-package com.excelsiorsoft.akka.parallel.hashma.java;
+package com.excelsiorsoft.akka.parallel.hashmap.java;
 
-import static com.excelsiorsoft.akka.parallel.hashma.java.Application.msg;
+import static com.excelsiorsoft.akka.parallel.hashmap.java.Application.msg;
 
 import java.util.HashMap;
 import java.util.Map;

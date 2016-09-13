@@ -1,10 +1,10 @@
 /**
  * 
  */
-package com.excelsiorsoft.akka.parallel.hashma.java;
+package com.excelsiorsoft.akka.parallel.hashmap.java;
 
 import static akka.actor.Props.create;
-import static com.excelsiorsoft.akka.parallel.hashma.java.Utils.printMsg;
+import static com.excelsiorsoft.akka.parallel.hashmap.java.Utils.printMsg;
 import akka.actor.ActorRef;
 import akka.actor.UntypedActor;
 

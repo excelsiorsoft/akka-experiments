@@ -1,4 +1,4 @@
-package com.excelsiorsoft.akka.parallel.hashma.java;
+package com.excelsiorsoft.akka.parallel.hashmap.java;
 
 import java.util.ArrayList;
 import java.util.List;

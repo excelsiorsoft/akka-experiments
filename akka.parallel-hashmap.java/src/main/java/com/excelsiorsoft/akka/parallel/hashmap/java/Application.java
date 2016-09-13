@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.akka.parallel.hashma.java;
+package com.excelsiorsoft.akka.parallel.hashmap.java;
 
 import static akka.actor.ActorRef.noSender;
 
