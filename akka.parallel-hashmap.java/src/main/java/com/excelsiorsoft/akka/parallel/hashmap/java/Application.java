@@ -4,10 +4,6 @@
 package com.excelsiorsoft.akka.parallel.hashmap.java;
 
 import static akka.actor.ActorRef.noSender;
-
-import java.io.IOException;
-import java.util.Scanner;
-
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
