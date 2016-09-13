@@ -3,6 +3,8 @@
  */
 package com.excelsiorsoft.akka.parallel.hashma.java;
 
+import static akka.actor.ActorRef.noSender;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -22,9 +24,9 @@ public class Application {
 		ActorRef container = system.actorOf(Props.create(Container.class), "container");
 		ActorRef listener = system.actorOf(Props.create(Listener.class), "listener");
 		
-		container.tell(msg("put", "keyA", "valueA"), noSender());
-		container.tell(msg("put", "keyB", "valueB"), noSender());
-		container.tell(msg("put", "keyC", "valueC"), noSender());
+		container.tell(msg("put", "keyA", "valueA"),  noSender());
+		container.tell(msg("put", "keyB", "valueB"),  noSender());
+		container.tell(msg("put", "keyC", "valueC"),  noSender());
 		
 		container.tell(msg("remove", "keyB"), noSender());
 		
@@ -41,9 +43,6 @@ public class Application {
 		return elements;
 	}
 
-	private static ActorRef noSender() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
