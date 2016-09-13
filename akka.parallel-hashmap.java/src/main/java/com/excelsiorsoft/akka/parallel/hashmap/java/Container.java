@@ -29,7 +29,6 @@ public class Container extends UntypedActor {
 	public void onReceive(Object msg) throws Throwable {
 
 	Object[] msgArr = (Object[])msg; //this is an agreed upon request shape
-	//printMsg("container: "+msgArr);
 		
 		String command = (String)msgArr[0];
 		String key = (String)msgArr[1];
@@ -52,7 +51,6 @@ public class Container extends UntypedActor {
 			String value = (String)msgArr[2];
 			ActorRef originalSender = (ActorRef)msgArr[3];
 			Object[] responseGet = {"get/result", key, value};
-			//System.out.println("container, about to respond to `get/result`");
 			originalSender.tell(responseGet, getSelf());
 			break;
 		}
