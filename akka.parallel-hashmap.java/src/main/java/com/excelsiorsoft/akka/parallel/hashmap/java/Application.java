@@ -20,15 +20,15 @@ public class Application {
 		ActorRef container = system.actorOf(Props.create(Container.class), "container");
 		ActorRef listener = system.actorOf(Props.create(Listener.class), "listener");
 		
-		container.tell(msg("put", "keyA", "valueA"),  noSender());
-		container.tell(msg("put", "keyB", "valueB"),  noSender());
-		container.tell(msg("put", "keyC", "valueC"),  noSender());
+		container.tell(msg("put", "key-A", "A"),  noSender());
+		container.tell(msg("put", "key-B", "B"),  noSender());
+		container.tell(msg("put", "key-C", "C"),  noSender());
 		
 		container.tell(msg("remove", "keyB"), noSender());
 		
-		container.tell(msg("get", "keyA", "valueA"), listener);
-		container.tell(msg("get", "keyA", "valueA"), listener);
-		container.tell(msg("get", "keyA", "valueA"), listener);
+		container.tell(msg("get", "key-A"), listener);
+		container.tell(msg("get", "key-B"), listener);
+		container.tell(msg("get", "key-C"), listener);
 		
 		System.in.read();
 		system.shutdown();
