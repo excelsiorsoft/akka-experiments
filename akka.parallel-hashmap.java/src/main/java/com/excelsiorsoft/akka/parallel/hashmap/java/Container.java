@@ -43,20 +43,24 @@ public class Container extends UntypedActor {
 		switch(command) {
 									//just proxy to the bucket
 		case PUT: 					//{"put", key, value} -> {"put", key, value}
+
 		case REMOVE: 				//{"remove", key} -> {"remove", key}
 			
 			   												//getSelf() - not strictly necessary as no response is expected
 			buckets[key.hashCode() % NUM_OF_BUCKETS].tell(msg, getSelf()); 
 			break;
+
 		
 		case GET: 				//{"get", key} -> {"get", key, originalSender}
 			
 			buckets[key.hashCode() % NUM_OF_BUCKETS].tell(new Object[]{GET, key, getSender()}, getSelf());
 			break;
+
 		
 		case GET_RESULT: 			//{"get/result", key, value, originalSender} -> {"get/result", key, value}
 			
 			String value = (String)msgArr[2];
+
 			ActorRef originalSender = (ActorRef)msgArr[3]; //listener
 			Object[] responseGet = {GET_RESULT, key, value};
 			originalSender.tell(responseGet, getSelf());
