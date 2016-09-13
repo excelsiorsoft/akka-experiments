@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.akka.parallel.summator.java;
+package com.excelsiorsoft.akka.parallel.hashma.java;
 
 import java.util.Scanner;
 
