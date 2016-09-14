@@ -1,4 +1,4 @@
-package com.excelsiorsoft.akka.supervisors.all.java;
+package com.excelsiorsoft.akka.monitors.java;
 
 import akka.actor.UntypedActor;
 
