@@ -31,4 +31,15 @@ Here's an expected output:
 		at com.excelsiorsoft.akka.supervisors.one.java.TestForOne.blockingAsk(TestForOne.java:62)
 		at com.excelsiorsoft.akka.supervisors.one.java.TestForOne.main(TestForOne.java:43)
 
-####Testing different behaviors of AllForOneStrategy supervisor strategy
+####Testing different behaviors of AllForOneStrategy supervisor strategies:
+
+- **resume:**
+
+	stateA = 42
+	stateB = 43
+	stateA on ArithmeticEx= 42
+	stateB on ArithmeticEx= 43
+	[WARN] [09/14/2016 12:07:43.947] [demo-akka.actor.default-dispatcher-3] [akka://demo/user/supervisor/child0.964487845983337] null
+
+- **restart:**
+
