@@ -9,12 +9,12 @@ import akka.actor.Props;
 import akka.util.Timeout;
 import static akka.pattern.Patterns.ask;
 
-public class TestForOne {
+public class TestForAll {
 
 	public static void main(String[] args) throws Exception {
 		ActorSystem system = ActorSystem.create("demo");
 		ActorRef supervisor = system.actorOf(
-				Props.create(SupervisorForOne.class), "supervisor");
+				Props.create(SupervisorForAll.class), "supervisor");
 
 
 		//we are asking supervisor to create a child

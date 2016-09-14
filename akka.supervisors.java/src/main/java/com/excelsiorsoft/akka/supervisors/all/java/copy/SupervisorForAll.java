@@ -10,7 +10,7 @@ import akka.actor.SupervisorStrategy;
 import akka.actor.UntypedActor;
 import akka.japi.Function;
 
-public class SupervisorForOne extends UntypedActor{
+public class SupervisorForAll extends UntypedActor{
 
 	private static SupervisorStrategy strategy = new OneForOneStrategy(10, Duration.create("1 minute"),
 			new Function<Throwable, SupervisorStrategy.Directive>() {
