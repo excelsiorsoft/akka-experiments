@@ -10,7 +10,11 @@ public class Utils {
 		} else {
 			System.out.println(msg);
 		}
-		
+
+	}
+
+	public static Object[] msg(Object... elements) {
+		return elements;
 	}
 
 }
