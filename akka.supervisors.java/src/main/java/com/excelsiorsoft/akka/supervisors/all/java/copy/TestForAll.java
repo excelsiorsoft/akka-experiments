@@ -37,29 +37,39 @@ public class TestForAll {
 			System.out.println("stateB = " + state);
 		}
 		
-		{
+/*		{//provoking resume() behavior
 			childA.tell(new ArithmeticException(), ActorRef.noSender());
 			Integer stateA = (Integer) blockingAsk(childA, "get");
 			System.out.println("stateA on ArithmeticEx= " + stateA);
 			Integer stateB = (Integer) blockingAsk(childB, "get");
 			System.out.println("stateB on ArithmeticEx= " + stateB);
+		}*/
+		
+		/*{//provoking restart() behavior
+			childA.tell(new NullPointerException(), ActorRef.noSender());
+			Integer stateA = (Integer) blockingAsk(childA, "get");
+			System.out.println("stateA on NullPointerEx= " + stateA);
+			Integer stateB = (Integer) blockingAsk(childB, "get");
+			System.out.println("stateB on NullPointerEx= " + stateB);
+		}*/
+		
+/*		{//provoking stop() or behavior
+			childA.tell(new IllegalArgumentException(), ActorRef.noSender());
+			Integer stateA = (Integer) blockingAsk(childA, "get");
+			System.out.println("stateA on IllegalArgumentEx= " + stateA);
+			Integer stateB = (Integer) blockingAsk(childB, "get");
+			System.out.println("stateB on IllegalArgumentEx= " + stateB);
+		}*/
+		
+		{//provoking  escalate() behavior
+			childA.tell(new Exception(), ActorRef.noSender());
+			Integer stateA = (Integer) blockingAsk(childA, "get");
+			System.out.println("stateA on Exception= " + stateA);
+			Integer stateB = (Integer) blockingAsk(childB, "get");
+			System.out.println("stateB on Exception= " + stateB);
 		}
 		
-/*		
-		{
-			child.tell(new NullPointerException(), ActorRef.noSender());
-			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state on NullPointerEx= " + state);
-		}
-
-		{
-			//child.tell(new Exception(), ActorRef.noSender());
-			child.tell(new IllegalArgumentException(), ActorRef.noSender());
-			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state on IllegalArgumentEx=" + state);
-		}
 		
-*/		
 	}
 
 	
