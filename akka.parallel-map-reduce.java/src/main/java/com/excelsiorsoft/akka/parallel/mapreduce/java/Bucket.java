@@ -1,6 +1,6 @@
 package com.excelsiorsoft.akka.parallel.mapreduce.java;
 
-import static com.excelsiorsoft.akka.parallel.mapreduce.java.Application.msg;
+import static com.excelsiorsoft.akka.parallel.mapreduce.java.Utils.msg;
 import static com.excelsiorsoft.akka.parallel.mapreduce.java.Container.*;
 
 import java.util.HashMap;
