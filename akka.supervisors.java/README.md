@@ -103,16 +103,16 @@ Here is the expected output:
 
 	state = 42
 	state on NullPointerEx= 0
-	[ERROR] [09/14/2016 13:45:53.020] [demo-akka.actor.default-dispatcher-3] [akka://demo/user/supervisor/child] null
+	[ERROR] [09/14/2016 14:02:50.389] [demo-akka.actor.default-dispatcher-6] [akka://demo/user/supervisor/child] null
 	java.lang.NullPointerException
 		at com.excelsiorsoft.akka.monitors.java.TestMonitoring.main(TestMonitoring.java:37)
 	
-	[ERROR] [09/14/2016 13:45:53.028] [demo-akka.actor.default-dispatcher-4] [akka://demo/user/supervisor] null
+	[ERROR] [09/14/2016 14:02:50.398] [demo-akka.actor.default-dispatcher-4] [akka://demo/user/supervisor] null
 	java.lang.Exception
 		at com.excelsiorsoft.akka.monitors.java.TestMonitoring.main(TestMonitoring.java:46)
 	
-	TERMINATED: Actor[akka://demo/user/supervisor/child#-1039006729]
-	[INFO] [09/14/2016 13:45:53.037] [demo-akka.actor.default-dispatcher-3] [akka://demo/user/supervisor/child] Message [java.lang.String] from Actor[akka://demo/temp/$a] to Actor[akka://demo/user/supervisor/child#-1039006729] was not delivered. [1] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
+	>>Monitor:TERMINATED: Actor[akka://demo/user/supervisor/child#454259402]
+	[INFO] [09/14/2016 14:02:50.407] [demo-akka.actor.default-dispatcher-4] [akka://demo/user/supervisor/child] Message [java.lang.String] from Actor[akka://demo/temp/$a] to Actor[akka://demo/user/supervisor/child#454259402] was not delivered. [1] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.
 	Exception in thread "main" java.util.concurrent.TimeoutException: Futures timed out after [5 seconds]
 		at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:219)
 		at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:223)

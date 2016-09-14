@@ -22,7 +22,7 @@ public class Monitor extends UntypedActor {
 			getContext().watch(actor);
 		}else if (msg instanceof Terminated) {
 			
-			System.out.println("TERMINATED: "+((Terminated)msg).getActor());
+			System.out.println(">>Monitor:TERMINATED: "+((Terminated)msg).getActor());
 		}else {
 			unhandled(msg);
 		}
