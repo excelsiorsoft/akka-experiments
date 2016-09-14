@@ -2,7 +2,7 @@
 
 ###This project highlights the exception handling way of Akka via supervisors hierarchy
 
-####Testing different behaviors of OneForOneStrategy supervisor strategy
+####Testing different behaviors of com.excelsiorsoft.akka.supervisors.one.java.OneForOneStrategy supervisor strategy
 
 - To start - execute Application.main() in IDE (or console).
 
@@ -31,7 +31,7 @@ Here's an expected output:
 		at com.excelsiorsoft.akka.supervisors.one.java.TestForOne.blockingAsk(TestForOne.java:62)
 		at com.excelsiorsoft.akka.supervisors.one.java.TestForOne.main(TestForOne.java:43)
 
-####Testing different behaviors of AllForOneStrategy supervisor strategies:
+####Testing different behaviors of com.excelsiorsoft.akka.supervisors.all.java.AllForOneStrategy supervisor strategies:
 
 - **resume - just continuing all actors upon one of them failing:**
 
