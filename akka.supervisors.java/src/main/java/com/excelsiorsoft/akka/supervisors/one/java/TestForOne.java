@@ -1,4 +1,4 @@
-package com.excelsiorsoft.akka.supervisors.java;
+package com.excelsiorsoft.akka.supervisors.one.java;
 
 import scala.concurrent.Await;
 import scala.concurrent.Future;
