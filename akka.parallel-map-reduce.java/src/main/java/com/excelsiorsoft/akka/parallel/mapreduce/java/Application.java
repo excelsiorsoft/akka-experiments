@@ -4,7 +4,13 @@
 package com.excelsiorsoft.akka.parallel.mapreduce.java;
 
 import static akka.actor.ActorRef.noSender;
-import static com.excelsiorsoft.akka.parallel.mapreduce.java.Container.*;
+import static com.excelsiorsoft.akka.parallel.mapreduce.java.Container.GET;
+import static com.excelsiorsoft.akka.parallel.mapreduce.java.Container.PUT;
+import static com.excelsiorsoft.akka.parallel.mapreduce.java.Container.REMOVE;
+import static com.excelsiorsoft.akka.parallel.mapreduce.java.Utils.msg;
+
+import java.util.Map;
+
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -22,23 +28,28 @@ public class Application {
 		ActorRef listener = system.actorOf(Props.create(Listener.class), "listener");
 		
 		container.tell(msg(PUT, "key-A", "A"),  noSender());
-		container.tell(msg(PUT, "key-B", "B"),  noSender());
+		container.tell(msg(PUT, "key-B", "val-B"),  noSender());
 		container.tell(msg(PUT, "key-C", "C"),  noSender());
+		container.tell(msg(PUT, "key-D", "val-D"),  noSender());
 		
-		container.tell(msg(REMOVE, "keyB"), noSender());
 		
-		container.tell(msg(GET, "key-A"), listener);
-		container.tell(msg(GET, "key-B"), listener);
-		container.tell(msg(GET, "key-C"), listener);
+		Mapper<Map.Entry<String, String>, Integer> mapper = (Map.Entry<String, String> entry) -> {
+			return entry.getKey().length()==entry.getValue().length()? 1 : 0;
+		};
 		
+		Reducer<Integer> reducer = (Integer x, Integer y) -> {
+			return x + y;
+		};
+		
+		Integer identity = 0;
+		container.tell(msg("map-reduce", mapper, reducer, identity), listener);
+		
+				
 		System.in.read();
 		system.shutdown();
 	}
 
-	public static Object[] msg(Object... elements) {
-		
-		return elements;
-	}
+	
 
 	
 
