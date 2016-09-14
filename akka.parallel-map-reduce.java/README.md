@@ -11,7 +11,7 @@ which returs:
 
     result: 2
     
-**Task2:** we want to calculate the number of map entries in the distributed hashmap storage that contain D.
+**Task2:** we want to calculate the number of map entries in the distributed hashmap storage values of which contain letter `D`.
 
 - To start - execute ApplicationTask2.main() in IDE (or console).
 
