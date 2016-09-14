@@ -1,8 +1,10 @@
 # akka.supervisors.java
 
-This project highlights the exception handling way of Akka via supervisors hierarchy
+###This project highlights the exception handling way of Akka via supervisors hierarchy
 
-- To start - execute com.excelsiorsoft.akka.supervisors.one.java.TestForOne.main() in IDE (or console).
+####Testing different behaviors of OneForOneStrategy supervisor strategy
+
+- To start - execute Application.main() in IDE (or console).
 
 Here's an expected output:
 
@@ -28,3 +30,5 @@ Here's an expected output:
 		at scala.concurrent.Await.result(package.scala)
 		at com.excelsiorsoft.akka.supervisors.one.java.TestForOne.blockingAsk(TestForOne.java:62)
 		at com.excelsiorsoft.akka.supervisors.one.java.TestForOne.main(TestForOne.java:43)
+
+####Testing different behaviors of AllForOneStrategy supervisor strategy
