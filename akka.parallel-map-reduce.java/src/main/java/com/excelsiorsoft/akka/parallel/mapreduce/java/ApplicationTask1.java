@@ -19,7 +19,7 @@ import akka.actor.Props;
  * @author Simeon
  *
  */
-public class Application {
+public class ApplicationTask1 {
 	
 	public static void main(String[] args) throws Throwable {
 		

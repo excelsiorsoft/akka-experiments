@@ -103,6 +103,7 @@ public class Container extends UntypedActor {
 			//{"map-reduce/result", id, result} -> {}
 			Long id = (Long)msgArr[1];
 			counts.put(lastId, counts.get(id)+1);
+			
 			Object oldResult = results.get(id);
 			Object newResult = msgArr[2];
 			results.put(id, reducers.get(id).reduce(oldResult, newResult));
