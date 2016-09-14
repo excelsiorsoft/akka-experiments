@@ -2,7 +2,7 @@
 
 This project highlights the exception handling way of Akka via supervisors hierarchy
 
-- To start - execute Application.main() in IDE (or console).
+- To start - execute com.excelsiorsoft.akka.supervisors.one.java.TestForOne.main() in IDE (or console).
 
 Here's an expected output:
 
