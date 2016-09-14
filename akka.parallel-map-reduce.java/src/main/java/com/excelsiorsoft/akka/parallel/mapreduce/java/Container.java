@@ -45,6 +45,7 @@ public class Container extends UntypedActor {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onReceive(Object msg) throws Throwable {
 
