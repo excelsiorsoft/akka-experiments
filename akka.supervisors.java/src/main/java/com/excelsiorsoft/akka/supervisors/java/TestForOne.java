@@ -16,6 +16,7 @@ public class TestForOne {
 		ActorRef supervisor = system.actorOf(
 				Props.create(SupervisorForOne.class), "supervisor");
 
+
 		//we are asking supervisor to create a child
 		ActorRef child = (ActorRef) blockingAsk(supervisor,
 				Props.create(Child.class));
@@ -57,6 +58,7 @@ public class TestForOne {
 			throws Exception {
 		Timeout timeout = new Timeout(Duration.create(5, "seconds"));
 		Future<Object> future = ask(actor, msg, timeout); //scala's future
+
 		return Await.result(future, timeout.duration());
 
 	}
