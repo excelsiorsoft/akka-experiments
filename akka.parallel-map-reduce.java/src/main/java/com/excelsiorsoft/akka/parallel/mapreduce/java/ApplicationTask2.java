@@ -41,8 +41,8 @@ public class ApplicationTask2 {
 			return x + y;
 		};
 		
-		Integer identity = 0;
-		container.tell(msg("map-reduce", mapper, reducer, identity), listener);
+		Integer accum = 0;
+		container.tell(msg("map-reduce", mapper, reducer, accum), listener);
 		
 				
 		System.in.read();
