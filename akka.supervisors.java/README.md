@@ -122,3 +122,14 @@ Here is the expected output:
 		at scala.concurrent.Await.result(package.scala)
 		at com.excelsiorsoft.akka.monitors.java.TestMonitoring.blockingAsk(TestMonitoring.java:69)
 		at com.excelsiorsoft.akka.monitors.java.TestMonitoring.main(TestMonitoring.java:47)
+
+
+####Testing selection behavior :
+
+ To start - execute the following entry points:
+ 
+- **com.excelsiorsoft.akka.selectors.java.TestActorSelectionMany.main()**
+ 
+-  **com.excelsiorsoft.akka.selectors.java.TestActorSelectionAlive.main()** 
+ 
+ in IDE (or console).
