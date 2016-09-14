@@ -1,4 +1,4 @@
-package com.excelsiorsoft.akka.parallel.hashmap.java;
+package com.excelsiorsoft.akka.supervisors.java;
 
 import java.util.Arrays;
 

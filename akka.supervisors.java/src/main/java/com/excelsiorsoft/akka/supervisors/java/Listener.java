@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.excelsiorsoft.akka.parallel.hashmap.java;
+package com.excelsiorsoft.akka.supervisors.java;
 
-import static com.excelsiorsoft.akka.parallel.hashmap.java.Utils.printMsg;
+import static com.excelsiorsoft.akka.supervisors.java.Utils.printMsg;
 import akka.actor.UntypedActor;
 
 /**

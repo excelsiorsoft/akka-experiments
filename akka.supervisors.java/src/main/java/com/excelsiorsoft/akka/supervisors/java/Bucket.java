@@ -1,7 +1,8 @@
-package com.excelsiorsoft.akka.parallel.hashmap.java;
+package com.excelsiorsoft.akka.supervisors.java;
 
-import static com.excelsiorsoft.akka.parallel.hashmap.java.Application.msg;
-import static com.excelsiorsoft.akka.parallel.hashmap.java.Container.*;
+import static com.excelsiorsoft.akka.supervisors.java.Application.msg;
+import static com.excelsiorsoft.akka.supervisors.java.Container.*;
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,10 +1,10 @@
 /**
  * 
  */
-package com.excelsiorsoft.akka.parallel.hashmap.java;
+package com.excelsiorsoft.akka.supervisors.java;
 
 import static akka.actor.ActorRef.noSender;
-import static com.excelsiorsoft.akka.parallel.hashmap.java.Container.*;
+import static com.excelsiorsoft.akka.supervisors.java.Container.*;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
