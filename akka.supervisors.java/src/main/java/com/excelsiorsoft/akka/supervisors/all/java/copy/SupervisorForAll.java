@@ -2,9 +2,11 @@ package com.excelsiorsoft.akka.supervisors.all.java.copy;
 
 
 
+import java.util.Random;
+
 import scala.concurrent.duration.Duration;
 import akka.actor.ActorRef;
-import akka.actor.OneForOneStrategy;
+import akka.actor.AllForOneStrategy;
 import akka.actor.Props;
 import akka.actor.SupervisorStrategy;
 import akka.actor.UntypedActor;
@@ -12,7 +14,7 @@ import akka.japi.Function;
 
 public class SupervisorForAll extends UntypedActor{
 
-	private static SupervisorStrategy strategy = new OneForOneStrategy(10, Duration.create("1 minute"),
+	private static SupervisorStrategy strategy = new AllForOneStrategy(10, Duration.create("1 minute"),
 			new Function<Throwable, SupervisorStrategy.Directive>() {
 		@Override
 		public SupervisorStrategy.Directive apply(Throwable t){
@@ -46,7 +48,9 @@ public class SupervisorForAll extends UntypedActor{
 	@Override
 	public void onReceive(Object msg) throws Throwable {
 		if(msg instanceof Props) {
-			ActorRef response = getContext().actorOf((Props)msg, "child");
+			Random randomizer = new Random();
+			
+			ActorRef response = getContext().actorOf((Props)msg, "child"+randomizer.nextDouble());
 			getSender().tell(response, getSelf());//send back reference to the created child
 		}else {
 			unhandled(msg);

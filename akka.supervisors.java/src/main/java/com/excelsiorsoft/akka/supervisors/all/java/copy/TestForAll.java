@@ -18,19 +18,34 @@ public class TestForAll {
 
 
 		//we are asking supervisor to create a child
-		ActorRef child = (ActorRef) blockingAsk(supervisor,
+		ActorRef childA = (ActorRef) blockingAsk(supervisor,
 				Props.create(Child.class));
+		
+		//we are asking supervisor to create yet another child
+				ActorRef childB = (ActorRef) blockingAsk(supervisor,
+						Props.create(Child.class));
 
 		{
-			child.tell(42, ActorRef.noSender());
-			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state = " + state);
+			childA.tell(42, ActorRef.noSender());
+			Integer state = (Integer) blockingAsk(childA, "get");
+			System.out.println("stateA = " + state);
 		}
+		
 		{
-			child.tell(new ArithmeticException(), ActorRef.noSender());
-			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state on ArithmeticEx= " + state);
+			childB.tell(43, ActorRef.noSender());
+			Integer state = (Integer) blockingAsk(childB, "get");
+			System.out.println("stateB = " + state);
 		}
+		
+		{
+			childA.tell(new ArithmeticException(), ActorRef.noSender());
+			Integer stateA = (Integer) blockingAsk(childA, "get");
+			System.out.println("stateA on ArithmeticEx= " + stateA);
+			Integer stateB = (Integer) blockingAsk(childB, "get");
+			System.out.println("stateB on ArithmeticEx= " + stateB);
+		}
+		
+/*		
 		{
 			child.tell(new NullPointerException(), ActorRef.noSender());
 			Integer state = (Integer) blockingAsk(child, "get");
@@ -43,6 +58,8 @@ public class TestForAll {
 			Integer state = (Integer) blockingAsk(child, "get");
 			System.out.println("state on IllegalArgumentEx=" + state);
 		}
+		
+*/		
 	}
 
 	
