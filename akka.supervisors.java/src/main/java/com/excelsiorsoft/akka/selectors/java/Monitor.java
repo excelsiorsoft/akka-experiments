@@ -1,11 +1,15 @@
 /**
  * 
  */
-package com.excelsiorsoft.akka.monitors.java;
+package com.excelsiorsoft.akka.selectors.java;
 
+import scala.concurrent.duration.Duration;
 import akka.actor.ActorRef;
+import akka.actor.AllForOneStrategy;
+import akka.actor.SupervisorStrategy;
 import akka.actor.Terminated;
 import akka.actor.UntypedActor;
+import akka.japi.Function;
 
 /**
  * @author Simeon
@@ -19,7 +23,6 @@ public class Monitor extends UntypedActor {
 		if(msg instanceof ActorRef) {
 			
 			ActorRef actor = (ActorRef)msg;
-			System.out.println("Setting watch on"+actor);
 			getContext().watch(actor);
 		}else if (msg instanceof Terminated) {
 			
@@ -29,5 +32,6 @@ public class Monitor extends UntypedActor {
 		}
 		
 	}
+	
 
 }
