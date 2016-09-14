@@ -24,25 +24,25 @@ public class TestForOne {
 		{
 			child.tell(42, ActorRef.noSender());
 			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state =" + state);
+			System.out.println("state = " + state);
 		}
 		{
 			child.tell(new ArithmeticException(), ActorRef.noSender());
 			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state =" + state);
+			System.out.println("state on ArithmeticEx= " + state);
 		}
 		{
 			child.tell(new NullPointerException(), ActorRef.noSender());
 			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state =" + state);
+			System.out.println("state on NullPointerEx= " + state);
 		}
 
-/*		{
-			child.tell(new Exception(), ActorRef.noSender());
+		{
+			//child.tell(new Exception(), ActorRef.noSender());
 			child.tell(new IllegalArgumentException(), ActorRef.noSender());
 			Integer state = (Integer) blockingAsk(child, "get");
-			System.out.println("state =" + state);
-		}*/
+			System.out.println("state on IllegalArgumentEx=" + state);
+		}
 	}
 
 	

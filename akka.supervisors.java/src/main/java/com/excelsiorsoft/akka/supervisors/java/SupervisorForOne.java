@@ -47,6 +47,7 @@ public class SupervisorForOne extends UntypedActor{
 	public void onReceive(Object msg) throws Throwable {
 		if(msg instanceof Props) {
 			ActorRef response = getContext().actorOf((Props)msg, "child");
+			getSender().tell(response, getSelf());//send back reference to the created child
 		}else {
 			unhandled(msg);
 		}
